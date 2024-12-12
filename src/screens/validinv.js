@@ -185,13 +185,16 @@ const handleInputCodeChange = (e) => {
 
             {isScannerActive && (
                 <div style={{ marginTop: "20px", width: "100%" }}>
-                    <QrReader
-                        onUpdate={(err, result) => {
-                            if (result) handleScan(result);
-                            if (err) handleError(err);
-                        }}
-                        style={{ width: "100%" }}
-                    />
+                   <QrReader
+    onUpdate={(err, result) => {
+        if (result) handleScan(result);
+        if (err) handleError(err);
+    }}
+    constraints={{
+        video: { width: 1280, height: 720, facingMode: "environment" },
+    }}
+    style={{ width: "100%" }}
+/>
                 </div>
             )}
                   <input
