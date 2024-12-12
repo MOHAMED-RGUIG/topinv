@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://topinvapi.onrender.com/",
+  "proxy": "https://topinvapi.onrender.com",
   "dependencies": {
     "@react-aria/ssr": "^3.9.3",
     "@redux-devtools/extension": "^3.3.0",
