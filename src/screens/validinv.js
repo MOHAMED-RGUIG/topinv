@@ -24,7 +24,7 @@ function Validinv() {
   const [isScanning, setIsScanning] = useState(false);
   const handleScan = (data) => {
     if (data) {
-      setScanResult(data); // Met à jour le résultat du scan
+     setEANCOD_0(data); // Met à jour le résultat du scan
       setIsScanning(false); // Désactive le scanner après un scan réussi
       setIsScannerActive(false); // Ferme la caméra
     }
@@ -174,8 +174,8 @@ const handleInputCodeChange = (e) => {
         type="text"
         placeholder="Scan Code-barres"
         className="form-control col-xl-10 col-8 col-md-8 mx-auto"
-        value={scanResult}
-        onChange={(e) => setScanResult(e.target.value)}  // Met à jour le résultat du scan dans l'input
+        value={EANCOD_0}
+        onChange={(e) => setEANCOD_0(e.target.value)}  // Met à jour le résultat du scan dans l'input
         style={{ width: '90%', fontSize: '13px' }}
       />
       <button
