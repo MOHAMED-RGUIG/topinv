@@ -6,7 +6,7 @@ import { debounce } from 'lodash';
 import { getFilteredValidInv,getFilteredValidInvByCode,getInv}  from '../actions/validInvAction';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
-import {QrReader, BarcodeScanner} from "react-qr-barcode-scanner";
+import  { BarcodeScanner } from "react-qr-barcode-scanner";
 
 function Validinv() {
     const dispatch = useDispatch();
