@@ -21,17 +21,16 @@ function Validinv() {
 
     const [isScannerActive, setIsScannerActive] = useState(false);
 
-   const handleScan = (result) => {
-        if (result) {
-            setEANCOD_0(result.text); // Remplit l'input avec le résultat du scan
-            setIsScannerActive(false); // Désactive le scanner après le scan
-        }
-    };
+  const handleScan = (data) => {
+    if (data) {
+      setEANCOD_0(data); // Remplir l'input avec le résultat du scan
+      setIsScannerActive(false); // Désactive le scanner après un scan
+    }
+  };
 
-    const handleError = (err) => {
-        console.error("Erreur de scan : ", err);
-    };
-
+  const handleError = (err) => {
+    console.error("Erreur : ", err);
+  };
     const debouncedDispatch = debounce((value) => {
       if (value.trim().length >= 3) {
           dispatch(getFilteredValidInv(value));}
@@ -167,25 +166,25 @@ const handleInputCodeChange = (e) => {
                     onChange={(e) => { setDESINV(e.target.value) }}
                     style={{ width: '90%', fontSize: '13px' }}
                 />  */}
-              <input
-                required
-                type="text"
-                placeholder="QR Code"
-                className="form-control col-xl-10 col-8 col-md-8 mx-auto"
-                value={EANCOD_0}
-                onChange={handleInputCodeChange}
-                style={{ width: "90%", fontSize: "13px" }}
-            />
-            <button
-                onClick={() => setIsScannerActive(!isScannerActive)}
-                className="btn5 btn-primary mt-3"
-            >
-                {isScannerActive ? "Fermer Scanner" : "Scanner un Code"}
-            </button>
+            <input
+        required
+        type="text"
+        placeholder="Code-barres"
+        className="form-control"
+        value={EANCOD_0}
+        onChange={(e) => setEANCOD_0(e.target.value)}
+        style={{ width: '90%', fontSize: '13px' }}
+      />
+      <button
+        onClick={() => setIsScannerActive(!isScannerActive)}
+        className="btn btn-primary mt-3"
+      >
+        {isScannerActive ? "Fermer Scanner" : "Scanner un Code-barres"}
+      </button>
 
-            {isScannerActive && (
-                <div style={{ marginTop: "20px", width: "100%" }}>
-                   <BarcodeScanner
+      {isScannerActive && (
+        <div style={{ marginTop: "20px", width: "100%" }}>
+          <BarcodeScanner
             onScan={handleScan}
             onError={handleError}
             constraints={{
@@ -193,8 +192,8 @@ const handleInputCodeChange = (e) => {
             }}
             style={{ width: "100%" }}
           />
-                </div>
-            )}
+        </div>
+      )}
                   <input
                 required
                 type='text'
