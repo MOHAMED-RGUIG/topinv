@@ -6,7 +6,7 @@ import { debounce } from 'lodash';
 import { getFilteredValidInv,getFilteredValidInvByCode,getInv}  from '../actions/validInvAction';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
-import  BarcodeScanner  from "react-qr-barcode-scanner";
+import   QrReader  from "react-qr-barcode-scanner";
 
 function Validinv() {
     const dispatch = useDispatch();
@@ -20,16 +20,19 @@ function Validinv() {
     const {validinvcode} = validInvCodestate;
 
     const [isScannerActive, setIsScannerActive] = useState(false);
-
+ const [scanResult, setScanResult] = useState('');
+  const [isScanning, setIsScanning] = useState(false);
   const handleScan = (data) => {
     if (data) {
-      setEANCOD_0(data); // Remplir l'input avec le résultat du scan
-      setIsScannerActive(false); // Désactive le scanner après un scan
+      setScanResult(data); // Met à jour le résultat du scan
+      setIsScanning(false); // Désactive le scanner après un scan réussi
+      setIsScannerActive(false); // Ferme la caméra
     }
   };
 
   const handleError = (err) => {
-    console.error("Erreur : ", err);
+    console.error("Erreur de scan : ", err);
+    setIsScanning(false); // Désactive le scanner en cas d'erreur
   };
     const debouncedDispatch = debounce((value) => {
       if (value.trim().length >= 3) {
@@ -166,27 +169,32 @@ const handleInputCodeChange = (e) => {
                     onChange={(e) => { setDESINV(e.target.value) }}
                     style={{ width: '90%', fontSize: '13px' }}
                 />  */}
-            <input
+           <input
         required
         type="text"
-        placeholder="Code-barres"
+        placeholder="Scan QR Code ou Code-barres"
         className="form-control"
-        value={EANCOD_0}
-        onChange={(e) => setEANCOD_0(e.target.value)}
+        value={scanResult}
+        onChange={(e) => setScanResult(e.target.value)}  // Met à jour le résultat du scan dans l'input
         style={{ width: '90%', fontSize: '13px' }}
       />
       <button
         onClick={() => setIsScannerActive(!isScannerActive)}
         className="btn btn-primary mt-3"
       >
-        {isScannerActive ? "Fermer Scanner" : "Scanner un Code-barres"}
+        {isScannerActive ? "Fermer Scanner" : "Scanner un Code"}
       </button>
 
       {isScannerActive && (
         <div style={{ marginTop: "20px", width: "100%" }}>
-          <BarcodeScanner
-            onScan={handleScan}
-            onError={handleError}
+          <QrReader
+            onUpdate={(err, result) => {
+              if (result) {
+                handleScan(result);
+              } else if (err) {
+                handleError(err);
+              }
+            }}
             constraints={{
               video: { width: 1280, height: 720, facingMode: "environment" },
             }}
