@@ -180,7 +180,7 @@ const handleInputCodeChange = (e) => {
       />
       <button
         onClick={() => setIsScannerActive(!isScannerActive)}
-        className="btn btn-primary mt-3"
+        className="btn5 btn-primary mt-3"
       >
         {isScannerActive ? "Fermer Scanner" : "Scanner un Code"}
       </button>
