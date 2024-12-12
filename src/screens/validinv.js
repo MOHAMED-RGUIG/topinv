@@ -6,7 +6,7 @@ import { debounce } from 'lodash';
 import { getFilteredValidInv,getFilteredValidInvByCode,getInv}  from '../actions/validInvAction';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
-import QrReader from "react-qr-barcode-scanner";
+import {QrReader, BarcodeScanner} from "react-qr-barcode-scanner";
 
 function Validinv() {
     const dispatch = useDispatch();
@@ -185,16 +185,14 @@ const handleInputCodeChange = (e) => {
 
             {isScannerActive && (
                 <div style={{ marginTop: "20px", width: "100%" }}>
-                   <QrReader
-    onUpdate={(err, result) => {
-        if (result) handleScan(result);
-        if (err) handleError(err);
-    }}
-    constraints={{
-        video: { width: 1280, height: 720, facingMode: "environment" },
-    }}
-    style={{ width: "100%" }}
-/>
+                   <BarcodeScanner
+            onScan={handleScan}
+            onError={handleError}
+            constraints={{
+              video: { width: 1280, height: 720, facingMode: "environment" },
+            }}
+            style={{ width: "100%" }}
+          />
                 </div>
             )}
                   <input
