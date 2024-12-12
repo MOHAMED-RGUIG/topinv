@@ -21,15 +21,15 @@ function Validinv() {
 
     const [isScannerActive, setIsScannerActive] = useState(false);
 
-    const handleScan = (data) => {
-        if (data) {
-            setEANCOD_0(data); // Remplit l'input QR Code avec le résultat du scan
-            setIsScannerActive(false); // Désactive le scanner après scan
+   const handleScan = (result) => {
+        if (result) {
+            setEANCOD_0(result.text); // Remplit l'input avec le résultat du scan
+            setIsScannerActive(false); // Désactive le scanner après le scan
         }
     };
 
     const handleError = (err) => {
-        console.error(err);
+        console.error("Erreur de scan : ", err);
     };
 
     const debouncedDispatch = debounce((value) => {
@@ -167,15 +167,15 @@ const handleInputCodeChange = (e) => {
                     onChange={(e) => { setDESINV(e.target.value) }}
                     style={{ width: '90%', fontSize: '13px' }}
                 />  */}
-                <input
+              <input
                 required
-                type='text'
-                placeholder='QR Code'
-                className='form-control col-xl-10 col-8 col-md-8 mx-auto'
+                type="text"
+                placeholder="QR Code"
+                className="form-control col-xl-10 col-8 col-md-8 mx-auto"
                 value={EANCOD_0}
                 onChange={handleInputCodeChange}
-                style={{ width: '90%', fontSize: '13px' }}
-            />   
+                style={{ width: "90%", fontSize: "13px" }}
+            />
             <button
                 onClick={() => setIsScannerActive(!isScannerActive)}
                 className="btn btn-primary mt-3"
@@ -186,8 +186,10 @@ const handleInputCodeChange = (e) => {
             {isScannerActive && (
                 <div style={{ marginTop: "20px", width: "100%" }}>
                     <QrReader
-                        onScan={handleScan}
-                        onError={handleError}
+                        onUpdate={(err, result) => {
+                            if (result) handleScan(result);
+                            if (err) handleError(err);
+                        }}
                         style={{ width: "100%" }}
                     />
                 </div>
