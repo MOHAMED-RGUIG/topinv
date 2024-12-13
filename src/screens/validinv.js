@@ -213,9 +213,13 @@ const handleInputCodeChange = (e) => {
               }
             }}
             constraints={{
-              video: { width: 1280, height: 720, facingMode: "environment" },
-            }}
-            style={{ width: "100%" }}
+        video: {
+            width: { ideal: 1920 }, // Résolution plus élevée
+            height: { ideal: 1080 },
+            facingMode: "environment", // Utiliser la caméra arrière
+        },
+    }}
+    style={{ width: "100%" }}
           />
         </div>
       )}
