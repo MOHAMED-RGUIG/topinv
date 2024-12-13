@@ -213,7 +213,18 @@ const handleInputCodeChange = (e) => {
       </button>
 
       {isScannerActive && (
-        <div style={{ marginTop: "20px", width: "100%" }}>
+        <div style={{
+                        position: "fixed",
+                        top: 0,
+                        left: 0,
+                        width: "100vw",
+                        height: "100vh",
+                        zIndex: 1000,
+                        backgroundColor: "black",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                    }}>
           <QrReader
     onUpdate={(err, result) => {
         if (result) {
