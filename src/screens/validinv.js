@@ -199,7 +199,7 @@ const handleInputCodeChange = (e) => {
            <input
         required
         type="text"
-        placeholder="Scan QR Code ou Code-barres"
+        placeholder="Code-barre"
         className="form-control col-xl-10 col-8 col-md-8 mx-auto"
         value={EANCOD_0}
         onChange={handleInputCodeChange}  // Met à jour le résultat du scan dans l'input
