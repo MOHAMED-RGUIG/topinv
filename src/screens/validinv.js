@@ -215,18 +215,27 @@ const handleInputCodeChange = (e) => {
       {isScannerActive && (
         <div style={{ marginTop: "20px", width: "100%" }}>
           <QrReader
-            onUpdate={(err, result) => {
-              if (result) {
-                handleScan(result);
-              } else if (err) {
-                handleError(err);
-              }
-            }}
-            constraints={{
-              video: { width: 1280, height: 720, facingMode: "environment" },
-            }}
-            style={{ width: "100%" }}
-          />
+    onUpdate={(err, result) => {
+        if (result) {
+            handleScan(result);
+        } else if (err) {
+            handleError(err);
+        }
+    }}
+    constraints={{
+        video: { width: 1280, height: 720, facingMode: "environment" },
+    }}
+    style={{
+        position: "fixed", // Fixe le composant à l'écran
+        top: 0,
+        left: 0,
+        width: "100vw", // Largeur de la fenêtre
+        height: "100vh", // Hauteur de la fenêtre
+        zIndex: 1000, // Devant tous les autres éléments
+        backgroundColor: "black", // Pour remplir l'espace vide
+    }}
+/>
+
         </div>
       )}
 
