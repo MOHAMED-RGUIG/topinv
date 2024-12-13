@@ -239,7 +239,7 @@ const handleInputCodeChange = (e) => {
             </select>
              <button
                 onClick={() => setIsScannerActive(!isScannerActive)}
-                className="btn btn-primary mt-3"
+                className="btn5 btn-primary mt-3"
             >
                 {isScannerActive ? "Fermer Scanner" : "Scanner un Code"}
             </button>
@@ -248,7 +248,7 @@ const handleInputCodeChange = (e) => {
                 required
                 type="text"
                 placeholder="Résultat QR Code"
-                className="form-control"
+                className="form-control col-xl-10 col-8 col-md-8 mx-auto"
                 value={scanResult}
                 onChange={(e) => setScanResult(e.target.value)}
                 style={{ width: "90%", fontSize: "13px", marginTop: "10px" }}
