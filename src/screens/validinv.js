@@ -50,7 +50,7 @@ function Validinv() {
 const handleInputCodeChange = (e) => {
     const value = e.target.value;
     setEANCOD_0(value);
-    setITMREF_0(ITMREF_0);
+    
     debouncedCodeDispatch(value);
 };
   const addNewRow = (e) => {
@@ -203,16 +203,23 @@ const handleInputCodeChange = (e) => {
           />
         </div>
       )}
-                  <input
+
+{[...new Set(localData.map((item) => item.ITMREF_0))].map((itmref, index) => (
+         
+    <input
                 required
                 type='text'
                 placeholder='Code article'
                 className='form-control col-xl-10 col-8 col-md-8 mx-auto'
-                value={ITMREF_0}
+                value={itmref}
                 onChange={handleInputChange}
                 style={{ width: '90%', fontSize: '13px' }}
                 disabled={EANCOD_0.trim() !== ''}
             />   
+    
+      ))}
+
+                  
      <div className="mb-4">
     <h5 className="text-lg font-bold mb-2 mt-4 w-50 mx-auto">Référence</h5>
     <ul className="list-disc list-inside">
