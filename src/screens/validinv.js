@@ -258,8 +258,9 @@ const handleInputCodeChange = (e) => {
         position: "fixed", // Fixe le composant à l'écran
         top: 0,
         left: 0,
-        width: "100vw", // Largeur de la fenêtre
-        height: "100vh", // Hauteur de la fenêtre
+        width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
         zIndex: 1000, // Devant tous les autres éléments
         backgroundColor: "black", // Pour remplir l'espace vide
     }}
