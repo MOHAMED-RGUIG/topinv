@@ -219,7 +219,7 @@ const handleInputCodeChange = (e) => {
                             position: "absolute",
                             top: "10px",
                             right: "10px",
-                            zIndex: 1100,
+                            zIndex: 1700,
                             padding: "10px",
                             backgroundColor: "red",
                             color: "white",
@@ -261,7 +261,7 @@ const handleInputCodeChange = (e) => {
         width: "100%",
                             height: "100%",
                             objectFit: "cover",
-        zIndex: 1000, // Devant tous les autres éléments
+        zIndex: 1700, // Devant tous les autres éléments
         backgroundColor: "black", // Pour remplir l'espace vide
     }}
 />
