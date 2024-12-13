@@ -50,7 +50,7 @@ function Validinv() {
 const handleInputCodeChange = (e) => {
     const value = e.target.value;
     setEANCOD_0(value);
-    setITMREF_0(localdata.ITMREF_0);
+    setITMREF_0(ITMREF_0);
     debouncedCodeDispatch(value);
 };
   const addNewRow = (e) => {
