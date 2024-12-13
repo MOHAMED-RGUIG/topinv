@@ -24,7 +24,7 @@ function Validinv() {
   const [isScanning, setIsScanning] = useState(false);
   const handleScan = (data) => {
     if (data) {
-     setEANCOD_0(data); // Met à jour le résultat du scan
+      setScanResult(data); // Met à jour le résultat du scan
       setIsScanning(false); // Désactive le scanner après un scan réussi
       setIsScannerActive(false); // Ferme la caméra
     }
@@ -189,15 +189,15 @@ const handleInputCodeChange = (e) => {
            <input
         required
         type="text"
-        placeholder="Scan Code-barres"
-        className="form-control col-xl-10 col-8 col-md-8 mx-auto"
-        value={EANCOD_0}
-        onChange={handleInputCodeChange}  // Met à jour le résultat du scan dans l'input
+        placeholder="Scan QR Code ou Code-barres"
+        className="form-control"
+        value={scanResult}
+        onChange={(e) => setScanResult(e.target.value)}  // Met à jour le résultat du scan dans l'input
         style={{ width: '90%', fontSize: '13px' }}
       />
       <button
         onClick={() => setIsScannerActive(!isScannerActive)}
-        className="btn5 btn-primary mt-3"
+        className="btn btn-primary mt-3"
       >
         {isScannerActive ? "Fermer Scanner" : "Scanner un Code"}
       </button>
@@ -213,13 +213,9 @@ const handleInputCodeChange = (e) => {
               }
             }}
             constraints={{
-        video: {
-            width: { ideal: 1920 }, // Résolution plus élevée
-            height: { ideal: 1080 },
-            facingMode: "environment", // Utiliser la caméra arrière
-        },
-    }}
-    style={{ width: "100%" }}
+              video: { width: 1280, height: 720, facingMode: "environment" },
+            }}
+            style={{ width: "100%" }}
           />
         </div>
       )}
