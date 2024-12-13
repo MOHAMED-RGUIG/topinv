@@ -190,14 +190,14 @@ const handleInputCodeChange = (e) => {
         required
         type="text"
         placeholder="Scan QR Code ou Code-barres"
-        className="form-control"
+        className="form-control col-xl-10 col-8 col-md-8 mx-auto"
         value={scanResult}
         onChange={(e) => setScanResult(e.target.value)}  // Met à jour le résultat du scan dans l'input
         style={{ width: '90%', fontSize: '13px' }}
       />
       <button
         onClick={() => setIsScannerActive(!isScannerActive)}
-        className="btn btn-primary mt-3"
+        className="btn5 btn-primary mt-3"
       >
         {isScannerActive ? "Fermer Scanner" : "Scanner un Code"}
       </button>
