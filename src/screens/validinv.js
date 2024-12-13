@@ -235,7 +235,7 @@ const handleInputCodeChange = (e) => {
                     <option disabled>Aucun inventaire disponible</option>
                 )}
             </select>
-            <button
+             <button
                 onClick={() => setIsScannerActive(!isScannerActive)}
                 className="btn btn-primary mt-3"
             >
@@ -250,7 +250,7 @@ const handleInputCodeChange = (e) => {
                 value={scanResult}
                 onChange={(e) => setScanResult(e.target.value)}
                 style={{ width: "90%", fontSize: "13px", marginTop: "10px" }}
-            />    
+            />
                 {/** <input
                     required
                     type='text'
