@@ -230,7 +230,7 @@ const handleInputCodeChange = (e) => {
                 value={ITMREF_0}
                 onChange={handleInputChange}
                 style={{ width: '90%', fontSize: '13px' }}
-                disabled={EANCOD_0.trim() !== ''}
+readOnly={EANCOD_0.trim() !== ''}
             />   
     
     
