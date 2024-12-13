@@ -7,7 +7,8 @@ import { getFilteredValidInv,getFilteredValidInvByCode,getInv}  from '../actions
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import   QrReader  from "react-qr-barcode-scanner";
-import { Html5QrcodeScanner } from "html5-qrcode";
+import { Html5Qrcode } from "html5-qrcode";
+//import { Html5QrcodeScanner } from "html5-qrcode";
 function Validinv() {
     const dispatch = useDispatch();
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -22,6 +23,7 @@ function Validinv() {
     const [isScannerActive, setIsScannerActive] = useState(false);
  const [scanResult, setScanResult] = useState('');
   const [isScanning, setIsScanning] = useState(false);
+const [scanner, setScanner] = useState(null);
  /* const handleScan = (data) => {
     if (data) {
       setScanResult(data); // Met à jour le résultat du scan
