@@ -35,7 +35,7 @@ function Validinv() {
     setIsScanning(false); // Désactive le scanner en cas d'erreur
   };*/
 //
-  useEffect(() => {
+ /* useEffect(() => {
     let scanner;
     if (isScannerActive) {
         scanner = new Html5QrcodeScanner(
@@ -56,7 +56,42 @@ function Validinv() {
                 console.error("Erreur de scan : ", error);
             }
         );
-    }
+    }*/
+ useEffect(() => {
+        let html5QrCode;
+
+        if (isScannerActive) {
+            html5QrCode = new Html5Qrcode("qr-reader");
+            const config = {
+                fps: 10,
+                qrbox: 250,
+                experimentalFeatures: {
+                    useBarCodeDetectorIfSupported: true,
+                },
+            };
+
+            const cameraConfig = { facingMode: "environment" }; // Active la caméra arrière
+
+            html5QrCode.start(
+                cameraConfig,
+                config,
+                (decodedText) => {
+                    setScanResult(decodedText);
+                    setIsScannerActive(false); // Arrête le scanner après un scan réussi
+                },
+                (error) => {
+                    console.warn("Erreur de scan : ", error);
+                }
+            ).then(() => setScanner(html5QrCode))
+              .catch((err) => console.error("Erreur lors du démarrage du scanner", err));
+        }
+
+        return () => {
+            if (html5QrCode) {
+                html5QrCode.stop().then(() => html5QrCode.clear());
+            }
+        };
+    }, [isScannerActive]);
 
     return () => {
         if (scanner) {
