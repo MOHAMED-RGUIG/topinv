@@ -204,7 +204,7 @@ const handleInputCodeChange = (e) => {
         </div>
       )}
 
-{[...new Set(localData.map((item) => item.ITMREF_0))].map((itmref, index) => (
+
          
     <input
                 required
@@ -217,7 +217,7 @@ const handleInputCodeChange = (e) => {
                 disabled={EANCOD_0.trim() !== ''}
             />   
     
-      ))}
+    
 
                   
      <div className="mb-4">
