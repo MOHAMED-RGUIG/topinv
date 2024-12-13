@@ -57,7 +57,7 @@ function Validinv() {
             }
         );
     }*/
- useEffect(() => {
+useEffect(() => {
         let html5QrCode;
 
         if (isScannerActive) {
@@ -92,13 +92,6 @@ function Validinv() {
             }
         };
     }, [isScannerActive]);
-/*
-    return () => {
-        if (scanner) {
-            scanner.clear();
-        }
-    };
-}, [isScannerActive]);*/
 //
     const debouncedDispatch = debounce((value) => {
       if (value.trim().length >= 3) {
