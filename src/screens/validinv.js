@@ -186,6 +186,16 @@ const handleInputCodeChange = (e) => {
                     onChange={(e) => { setDESINV(e.target.value) }}
                     style={{ width: '90%', fontSize: '13px' }}
                 />  */}
+
+<input
+        required
+        type="text"
+        placeholder="Scan QR Code ou Code-barres"
+        className="form-control"
+        value={scanResult}
+        onChange={(e) => setScanResult(e.target.value)}  // Met à jour le résultat du scan dans l'input
+        style={{ width: '90%', fontSize: '13px' }}
+      />
            <input
         required
         type="text"
