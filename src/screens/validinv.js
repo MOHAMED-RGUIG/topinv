@@ -7,7 +7,7 @@ import { getFilteredValidInv,getFilteredValidInvByCode,getInv}  from '../actions
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import   QrReader  from "react-qr-barcode-scanner";
-
+import { Html5QrcodeScanner } from "html5-qrcode";
 function Validinv() {
     const dispatch = useDispatch();
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -22,7 +22,7 @@ function Validinv() {
     const [isScannerActive, setIsScannerActive] = useState(false);
  const [scanResult, setScanResult] = useState('');
   const [isScanning, setIsScanning] = useState(false);
-  const handleScan = (data) => {
+ /* const handleScan = (data) => {
     if (data) {
       setScanResult(data); // Met à jour le résultat du scan
       setIsScanning(false); // Désactive le scanner après un scan réussi
@@ -33,7 +33,38 @@ function Validinv() {
   const handleError = (err) => {
     console.error("Erreur de scan : ", err);
     setIsScanning(false); // Désactive le scanner en cas d'erreur
-  };
+  };*/
+//
+  useEffect(() => {
+    let scanner;
+    if (isScannerActive) {
+        scanner = new Html5QrcodeScanner(
+            "qr-reader",
+            {
+                fps: 10,
+                qrbox: 250,
+            },
+            false
+        );
+
+        scanner.render(
+            (result) => {
+                setScanResult(result); // Met à jour le résultat du scan
+                setIsScannerActive(false); // Arrête le scanner après un scan réussi
+            },
+            (error) => {
+                console.error("Erreur de scan : ", error);
+            }
+        );
+    }
+
+    return () => {
+        if (scanner) {
+            scanner.clear();
+        }
+    };
+}, [isScannerActive]);
+//
     const debouncedDispatch = debounce((value) => {
       if (value.trim().length >= 3) {
           dispatch(getFilteredValidInv(value));}
@@ -176,7 +207,22 @@ const handleInputCodeChange = (e) => {
                     <option disabled>Aucun inventaire disponible</option>
                 )}
             </select>
-                 
+            <button
+                onClick={() => setIsScannerActive(!isScannerActive)}
+                className="btn btn-primary mt-3"
+            >
+                {isScannerActive ? "Fermer Scanner" : "Scanner un Code"}
+            </button>
+            {isScannerActive && <div id="qr-reader" style={{ width: "100%" }} />}
+            <input
+                required
+                type="text"
+                placeholder="Résultat QR Code"
+                className="form-control"
+                value={scanResult}
+                onChange={(e) => setScanResult(e.target.value)}
+                style={{ width: "90%", fontSize: "13px", marginTop: "10px" }}
+            />    
                 {/** <input
                     required
                     type='text'
@@ -186,8 +232,7 @@ const handleInputCodeChange = (e) => {
                     onChange={(e) => { setDESINV(e.target.value) }}
                     style={{ width: '90%', fontSize: '13px' }}
                 />  */}
-
-<input
+{/**<input
         required
         type="text"
         placeholder="Résultat QR Code"
@@ -195,16 +240,8 @@ const handleInputCodeChange = (e) => {
         value={scanResult}
         onChange={(e) => setScanResult(e.target.value)}  // Met à jour le résultat du scan dans l'input
         style={{ width: '90%', fontSize: '13px' }}
-      />
-           <input
-        required
-        type="text"
-        placeholder="Code-barre"
-        className="form-control col-xl-10 col-8 col-md-8 mx-auto"
-        value={EANCOD_0}
-        onChange={handleInputCodeChange}  // Met à jour le résultat du scan dans l'input
-        style={{ width: '90%', fontSize: '13px' }}
-      />
+      /> 
+
 
       <button
         onClick={() => setIsScannerActive(!isScannerActive)}
@@ -212,6 +249,7 @@ const handleInputCodeChange = (e) => {
       >
         {isScannerActive ? "Fermer Scanner" : "Scanner un Code"}
       </button>
+
 
 <button
                         onClick={() => setIsScannerActive(false)}
@@ -247,8 +285,17 @@ const handleInputCodeChange = (e) => {
           />
         </div>
       )}
-    
+    */}
 
+    <input
+        required
+        type="text"
+        placeholder="Code-barre"
+        className="form-control col-xl-10 col-8 col-md-8 mx-auto"
+        value={EANCOD_0}
+        onChange={handleInputCodeChange}  // Met à jour le résultat du scan dans l'input
+        style={{ width: '90%', fontSize: '13px' }}
+      />
          
     <input
                 required
