@@ -47,10 +47,26 @@ function Validinv() {
     if (value.trim().length >= 3) {
         dispatch(getFilteredValidInvByCode(value));}
 }, 500);
-const handleInputCodeChange = (e) => {
+/*const handleInputCodeChange = (e) => {
     const value = e.target.value;
     setEANCOD_0(value);
     
+    debouncedCodeDispatch(value);
+};*/
+const handleInputCodeChange = (e) => {
+    const value = e.target.value;
+    setEANCOD_0(value);
+
+    // Recherche l'article correspondant dans localData
+    const matchedItem = localData.find(item => item.EANCOD_0 === value);
+
+    // Si un article est trouvé, met à jour ITMREF_0
+    if (matchedItem) {
+        setITMREF_0(matchedItem.ITMREF_0);
+    } else {
+        setITMREF_0(''); // Réinitialise si aucun article ne correspond
+    }
+
     debouncedCodeDispatch(value);
 };
   const addNewRow = (e) => {
