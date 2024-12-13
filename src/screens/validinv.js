@@ -205,13 +205,13 @@ const handleInputCodeChange = (e) => {
         onChange={handleInputCodeChange}  // Met à jour le résultat du scan dans l'input
         style={{ width: '90%', fontSize: '13px' }}
       />
-{/*
+
       <button
         onClick={() => setIsScannerActive(!isScannerActive)}
         className="btn5 btn-primary mt-3"
       >
         {isScannerActive ? "Fermer Scanner" : "Scanner un Code"}
-      </button>*/}
+      </button>
 
 <button
                         onClick={() => setIsScannerActive(false)}
