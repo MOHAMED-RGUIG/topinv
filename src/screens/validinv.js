@@ -211,7 +211,7 @@ const handleInputCodeChange = (e) => {
                 type='text'
                 placeholder='Code article'
                 className='form-control col-xl-10 col-8 col-md-8 mx-auto'
-                value={itmref}
+                value={ITMREF_0}
                 onChange={handleInputChange}
                 style={{ width: '90%', fontSize: '13px' }}
                 disabled={EANCOD_0.trim() !== ''}
