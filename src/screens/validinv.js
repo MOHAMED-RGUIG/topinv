@@ -192,7 +192,7 @@ const handleInputCodeChange = (e) => {
         placeholder="Scan QR Code ou Code-barres"
         className="form-control col-xl-10 col-8 col-md-8 mx-auto"
         value={ITMREF_0}
-        onChange={(handleInputCodeChange}  // Met à jour le résultat du scan dans l'input
+        onChange={handleInputCodeChange}  // Met à jour le résultat du scan dans l'input
         style={{ width: '90%', fontSize: '13px' }}
       />
       <button
