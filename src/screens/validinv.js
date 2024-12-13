@@ -92,13 +92,13 @@ function Validinv() {
             }
         };
     }, [isScannerActive]);
-
+/*
     return () => {
         if (scanner) {
             scanner.clear();
         }
     };
-}, [isScannerActive]);
+}, [isScannerActive]);*/
 //
     const debouncedDispatch = debounce((value) => {
       if (value.trim().length >= 3) {
