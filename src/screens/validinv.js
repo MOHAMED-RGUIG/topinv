@@ -393,7 +393,7 @@ const handleInputCodeChange = (e) => {
                 placeholder="Code-barre"
                 className="form-control col-xl-10 col-8 col-md-8 mx-auto"
                 value={EANCOD_0} // Résultat combiné (manuel + scan)
-                onChange={(e) => handleInputCodeChange(e.target.value)}
+                onChange={(e) => handleInputCodeChange(scanResult)}
                 style={{ width: "90%", fontSize: "13px", marginTop: "10px" }}
             />
  {/* Input unique pour résultat scan et manuel */}
