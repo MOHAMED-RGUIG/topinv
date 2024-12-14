@@ -264,10 +264,10 @@ const handleInputCodeChange = (e) => {
       closePopup();
     };
     useEffect(() => {
-        if (scanResult) {
-            setEANCOD_0(scanResult);
-        }
-    }, [scanResult]);
+    if (scanResult) {
+        handleInputCodeChange({ target: { value: scanResult } });
+    }
+}, [scanResult]);
     
     const [REFINV_0, setREFINV_0] = useState('');
     
