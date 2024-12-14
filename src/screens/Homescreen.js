@@ -86,8 +86,8 @@ export default function Homescreen() {
     };
 
   return (
-    <div className='justify-content-center mx-auto'>
-      <div className="col-12 col-md-12 mt-5 mb-3 headerhomescreen">
+      <div className='justify-content-center mx-auto'>
+      <div className="col-11 col-md-11 mt-5 mb-3 headerhomescreen mx-auto">
      <h2 className='mt-5'> liste des inventaires</h2>
       </div>
 
@@ -122,7 +122,7 @@ export default function Homescreen() {
    { /* {renderCustomButtons(subCategories, selectedSubCategorie, handleSubCategoryChange, 'subcategory-btn')}*/} 
   </Carousel>
 </div>
-      <div className='search-bar col-10 col-xl-10 col-md-10 text-center mb-2 mx-auto'>
+     <div className='search-bar col-10 col-xl-10 col-md-10 text-center mb-2 mx-auto'>
         <input
           className="form-control text-center"
           id="search-input"
@@ -143,7 +143,7 @@ export default function Homescreen() {
 />
 
  </div>*/
-      <div className='row justify-content-center col-xl-11 col-md-11 col-11 mx-auto'>
+          <div className='row justify-content-center col-xl-12 col-md-12 col-12 mx-auto'>
         {loading ? (
           <Loading />
         ) : error ? (
@@ -151,7 +151,7 @@ export default function Homescreen() {
         ) : (
           
           products.map((product) => (
-            <div key={product.id} className='col-11 col-md-11'>
+            <div key={product.id} className='col-12 col-md-12'>
               <Product product={product}/>
             </div>
           ))
