@@ -319,7 +319,7 @@ const handleInputCodeChange = (e) => {
                 placeholder="Résultat QR Code"
                 className="form-control col-xl-10 col-8 col-md-8 mx-auto"
                 value={scanResult}
-                onChange={(e) => handleInputCodeChange(e.target.value)}
+                onChange={(e) => handleInputCodeChange(scanResult)}
                 style={{ width: "90%", fontSize: "13px", marginTop: "10px" }}
             />
 
