@@ -405,7 +405,7 @@ const handleInputCodeChange = (e) => {
                 value={EANCOD_0} // Résultat combiné (manuel + scan)
                 onChange={(e) => handleInputCodeChange}
                 style={{ display:none,width: "90%", fontSize: "13px", marginTop: "10px" }}
-            />*
+            />
  {/* Input unique pour résultat scan et manuel */}
     <input
         required
