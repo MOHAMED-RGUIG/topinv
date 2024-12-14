@@ -160,7 +160,7 @@ useEffect(() => {
     
     debouncedCodeDispatch(value);
 };*/
-const handlechangeresult (e)=>{
+const handlechangeresult =(e)=>{
     setScanResult(e.target.value);
     setEANCOD_0(e);
 };
