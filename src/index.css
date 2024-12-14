@@ -76,6 +76,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.btn7{
+  background-color: white !important;
+  color: #183F7F;
+  border: none;
+  font-family: 'Poppins';
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 18px;
+  width: 100% !important;
+}
 .category-btn2 {
   width: 65px  !important;
   background-color: #183F7F  ;/*#f0f0f0   #004ffa */
