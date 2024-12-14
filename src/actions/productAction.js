@@ -6,7 +6,7 @@ export const getAllProducts = () => async dispatch => {
     dispatch({ type: 'GET_PRODUCTS_REQUEST' });
 
     try {
-        const response = await axios.get('http://localhost:5000/api/products/getallproducts'); // Update with your CSV file path
+        const response = await axios.get('https://topinvapi.onrender.com/api/products/getallproducts'); // Update with your CSV file path
        
         dispatch({ type: 'GET_PRODUCTS_SUCCESS', payload: response.data });
     } catch (error) {
