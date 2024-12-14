@@ -31,7 +31,7 @@ export default function Product({ product }) {
   };
 
   return (
-    <div className="container mt-3 col-12">
+    <div className="container mt-3 col-12 mb-5">
       <div className="row">
         <div className="col-12 col-md-12">
           <div className="card shadow-sm border-0 rounded-3 col-12 col-md-12" >
