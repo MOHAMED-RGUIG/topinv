@@ -397,7 +397,7 @@ const handleInputCodeChange = (e) => {
       )}
     */}
  {/* Input unique pour résultat scan et manuel */}
-         /*   <input
+                        {  /*   <input
                 required
                 type="text"
                 placeholder="Code-barre"
@@ -405,7 +405,7 @@ const handleInputCodeChange = (e) => {
                 value={EANCOD_0} // Résultat combiné (manuel + scan)
                 onChange={(e) => handleInputCodeChange}
                 style={{ width: "90%", fontSize: "13px", marginTop: "10px" }}
-            />*/
+            />*/}
  {/* Input unique pour résultat scan et manuel */}
     <input
         required
