@@ -33,9 +33,9 @@ export default function Product({ product }) {
   return (
     <div className="container mt-3 col-12 mb-5">
       <div className="row">
-        <div className="col-12 col-md-12">
-          <div className="card shadow-sm border-0 rounded-3 col-12 col-md-12" >
-            <div className="card-body p-3 col-12" style={{borderLeft:'4px solid #183F7F'}}>
+        <div className="col-12 col-md-12 mx-auto">
+          <div className="card shadow-sm border-0 rounded-3 col-12 col-md-12 mx-auto" >
+            <div className="card-body p-3 col-12 mx-auto" style={{borderLeft:'4px solid #183F7F'}}>
               {/* Ligne principale */}
               <div className="d-flex col-12">
                 {/* Section Gauche : Détails */}
