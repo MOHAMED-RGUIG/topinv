@@ -133,7 +133,7 @@ export default function Homescreen() {
         />
       </div>
  
-/* <div>
+{/* <div>
 <Inventoryheaders
   inventory={{
     Date: "Date inventaire",
@@ -142,7 +142,7 @@ export default function Homescreen() {
   }} 
 />
 
- </div>*/
+ </div>*/}
           <div className='row justify-content-center col-xl-12 col-md-12 col-12 mx-auto'>
         {loading ? (
           <Loading />
