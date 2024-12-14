@@ -94,20 +94,20 @@ const [scanner, setScanner] = useState(null);
             }
         };
     }, [isScannerActive]);*/
-//
-  const handleInputCodeChange = (value) => {
-        setEANCOD_0(value); // Met à jour l'input
+//const handleInputCodeChange = (value) => {
+    setEANCOD_0(value);
 
-        // Recherche l'article correspondant dans localData
-        const matchedItem = localData.find((item) => item.EANCOD_0 === value);
+    const matchedItem = localData.find((item) =>
+        item.EANCOD_0.trim().toLowerCase() === value.trim().toLowerCase()
+    );
 
-        // Met à jour ITMREF_0 si un article est trouvé
-        if (matchedItem) {
-            setITMREF_0(matchedItem.ITMREF_0);
-        } else {
-            setITMREF_0(""); // Réinitialise si aucun article ne correspond
-        }
-    };
+    if (matchedItem) {
+        setITMREF_0(matchedItem.ITMREF_0);
+    } else {
+        setITMREF_0("");
+    }
+};
+
 
     // Initialise et démarre le scanner
     useEffect(() => {
