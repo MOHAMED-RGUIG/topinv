@@ -160,7 +160,11 @@ useEffect(() => {
     
     debouncedCodeDispatch(value);
 };*/
-
+const handlechangeresult (e)=>{
+    setScanResult(e.target.value);
+    setEANCOD_0(scanResult);
+};
+    
 const handleInputCodeChange = (e) => {
     const value = e.target.value;
     setEANCOD_0(value);
@@ -319,7 +323,7 @@ const handleInputCodeChange = (e) => {
                 placeholder="Résultat QR Code"
                 className="form-control col-xl-10 col-8 col-md-8 mx-auto"
                 value={scanResult}
-                onChange={handleInputCodeChange}
+                onChange={handlechangeresult}
                 style={{ width: "90%", fontSize: "13px", marginTop: "10px" }}
             />
 
