@@ -160,10 +160,11 @@ useEffect(() => {
     
     debouncedCodeDispatch(value);
 };*/
-const handlechangeresult =(e)=>{
-    setScanResult(e.target.value);
-    setEANCOD_0(e);
-};
+const handlechangeresult = (e) => {
+        const value = e.target.value;
+        setScanResult(value);
+        setEANCOD_0(value);
+    };
     
 const handleInputCodeChange = (e) => {
     const value = e.target.value;
@@ -262,6 +263,11 @@ const handleInputCodeChange = (e) => {
       setLocalData(updatedData);
       closePopup();
     };
+    useEffect(() => {
+        if (scanResult) {
+            setEANCOD_0(scanResult);
+        }
+    }, [scanResult]);
     
     const [REFINV_0, setREFINV_0] = useState('');
     
