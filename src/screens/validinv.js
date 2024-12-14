@@ -59,7 +59,7 @@ const [scanner, setScanner] = useState(null);
             }
         );
     }*/
-useEffect(() => {
+/*useEffect(() => {
         let html5QrCode;
 
         if (isScannerActive) {
@@ -93,8 +93,54 @@ useEffect(() => {
                 html5QrCode.stop().then(() => html5QrCode.clear());
             }
         };
-    }, [isScannerActive]);
+    }, [isScannerActive]);*/
 //
+  const handleInputCodeChange = (value) => {
+        setEANCOD_0(value); // Met à jour l'input
+
+        // Recherche l'article correspondant dans localData
+        const matchedItem = localData.find((item) => item.EANCOD_0 === value);
+
+        // Met à jour ITMREF_0 si un article est trouvé
+        if (matchedItem) {
+            setITMREF_0(matchedItem.ITMREF_0);
+        } else {
+            setITMREF_0(""); // Réinitialise si aucun article ne correspond
+        }
+    };
+
+    // Initialise et démarre le scanner
+    useEffect(() => {
+        let html5QrCode;
+
+        if (isScannerActive) {
+            html5QrCode = new Html5Qrcode("qr-reader");
+            const config = { fps: 10, qrbox: 250 };
+
+            const cameraConfig = { facingMode: "environment" };
+
+            html5QrCode
+                .start(
+                    cameraConfig,
+                    config,
+                    (decodedText) => {
+                        handleInputCodeChange(decodedText); // Met à jour l'input avec le résultat
+                        setIsScannerActive(false); // Arrête le scanner
+                    },
+                    (error) => console.warn("Erreur de scan :", error)
+                )
+                .then(() => setScanner(html5QrCode))
+                .catch((err) => console.error("Erreur démarrage scanner :", err));
+        }
+
+        // Nettoyage
+        return () => {
+            if (html5QrCode) {
+                html5QrCode.stop().then(() => html5QrCode.clear());
+            }
+        };
+    }, [isScannerActive]);
+
     const debouncedDispatch = debounce((value) => {
       if (value.trim().length >= 3) {
           dispatch(getFilteredValidInv(value));}
@@ -114,6 +160,7 @@ useEffect(() => {
     
     debouncedCodeDispatch(value);
 };*/
+/*
 const handleInputCodeChange = (e) => {
     const value = e.target.value;
     setEANCOD_0(value);
@@ -129,7 +176,7 @@ const handleInputCodeChange = (e) => {
     }
 
     debouncedCodeDispatch(value);
-};
+};*/
  /*const handleInputCodeChange = (value) => {
         setEANCOD_0(value);
 
@@ -339,7 +386,17 @@ const handleInputCodeChange = (e) => {
         </div>
       )}
     */}
-
+ {/* Input unique pour résultat scan et manuel */}
+            <input
+                required
+                type="text"
+                placeholder="Code-barre"
+                className="form-control col-xl-10 col-8 col-md-8 mx-auto"
+                value={EANCOD_0} // Résultat combiné (manuel + scan)
+                onChange={(e) => handleInputCodeChange(e.target.value)}
+                style={{ width: "90%", fontSize: "13px", marginTop: "10px" }}
+            />
+ {/* Input unique pour résultat scan et manuel */}
     <input
         required
         type="text"
