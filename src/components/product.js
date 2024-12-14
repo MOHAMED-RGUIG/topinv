@@ -6,88 +6,84 @@ import { toast } from 'react-toastify';
 import { FaEdit ,FaFilePdf} from 'react-icons/fa';
 export default function Product({ product }) {
   const [quantity, setQuantity] = useState(1);
-  const [show, setShow] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-
   const dispatch = useDispatch();
 
-  function addtocart() {
+  const [imageSrc, setImageSrc] = useState("./greenheart.png");
+  const [btnStyle, setBtnStyle] = useState("btn btn-sm btn-outline-success");
+  const [btnText, setBtnText] = useState("Exporter");
+
+  const handleClick = () => {
+    setImageSrc((prev) => (prev === "./greenheart.png" ? "./heart1.png" : "./greenheart.png"));
+    setBtnStyle((prev) =>
+      prev === "btn btn-sm btn-outline-success" ? "btn btn-sm btn-outline-secondary" : "btn btn-sm btn-outline-secondary"
+    );
+    setBtnText((prev) => (prev === "Ajouter" ? "Ajoutée" : "Ajoutée"));
+
     const selectedQuantity = parseInt(quantity, 10) || 1;
     dispatch(addToCart(product, selectedQuantity, isChecked));
-    toast.success('Le produit est ajouté à la carte!', {
-      position: 'bottom-right',
-      autoClose: 3000,
-      hideProgressBar: false
-    });
-  }
-  const [imageSrc, setImageSrc] = useState('./greenheart.png');
-  const [Btnstyle, setBtnstyle] = useState('category-btn2');
-  const [BtnText, setBtnText] = useState('Exporter');
-  const handleClick = () => {
-    setImageSrc(prevSrc => prevSrc === './greenheart.png' ? './heart1.png' : './greenheart.png');
-    setBtnstyle (prevSrc => prevSrc === 'category-btn2' ? 'category-btn3' : 'category-btn3');
-    setBtnText (prevSrc => prevSrc === 'Ajouter' ? 'Ajoutée' : 'Ajoutée');
 
-    addtocart();
+    toast.success("Le produit est ajouté à la carte!", {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+    });
   };
 
-const handleCheckboxChange = () => {
-  setIsChecked(!isChecked);
-};
-  //const calculatedPrice = isChecked ? 0 : product.PRI_0 * quantity;
- // const isMachineCategory = ['MACHINES','MACHINE A MODO MIO','FONTAINE','MACHINE BOUTIQUE','GUZZINI','MACHINE ESPRESSO','MACHINE FIRMA','MOULIN','FONTAINE'].includes(product.Designation_Famille_Stat1);
-   // const isPub = ['ART. PUBLICITE'].includes(product.Designation_Famille_Stat1)
-
   return (
-   <div className='mt-1 col-12 col-md-12 cart-product'>         
-    <div style={{ backgroundColor: '#f3f3f3', borderTop: '0px solid #ffffff', width:'100%', padding:'0px !important' }} className='shop-card bg-body d-flex align-items-center'>
-      {/*        <img src={product.Image} alt='product' className='img' style={{ height: '70px', width: '50px', overflow:'hidden', backgroundColor:'#f3f3f3 !important' }} />
- */}
-      <div style={{ width: '20%' }} onClick={handleShow}>
-      </div>
-  
-      <div className="product-tag1 d-flex align-items-center justify-content-between" style={{ width: '100%' }}>
-        <div >        <h3 className='pt-2 text-start block' style={{ fontSize:'12px', width:'100px' }}>{product.Date}</h3>
-</div>
-<div className="flex" >        <h3 className='pt-2 text-start flex' style={{ fontSize:'12px', width:'100px' }}>{product.Reference}</h3>
-<h3 className='pt-2 text-start flex mx-auto' style={{ fontSize:'12px', width:'100px' }}>{product.Status}</h3>
+    <div className="container mt-3">
+      <div className="row">
+        <div className="col-12">
+          <div className="card shadow-sm border-0 rounded-3" >
+            <div className="card-body p-3" style={{borderLeft:'4px solid #183F7F'}}>
+              {/* Ligne principale */}
+              <div className="d-flex justify-content-between align-items-center">
+                {/* Section Gauche : Détails */}
+                <div className="d-flex flex-column col-2">
+           
+                <p className="mb-0 small" style={{ fontSize: "10px" }}>
+  {new Date(product.DATEINV_0).toLocaleDateString("fr-FR", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  })}
+</p>
+                </div>
 
-</div>
-       
-        
-<div className='flex'>   
-       <h3 className='pt-2 text-start block mx-auto' style={{ fontSize:'12px', width:'100px' }}>{product.Status}</h3>
-        
-<div className='flex'> 
-<button 
-      alt="Edit" 
-      style={{ height: '1px', background:'white',color:'black',display: 'flex',cursor: 'pointer',alignItems: 'center', justifyContent: 'center',width:'5px' }} 
-      onClick={handleClick} 
-      className={`${Btnstyle}`}>
-      <FaEdit size={8} /> {/* Taille de l'icône */}
-    </button>
+                <div className="d-flex flex-column text-center col-4">
+            
+                  <p className="mb-0 small" style={{fontSize:'10px'}}>{product.DESINV_0}</p>
+                </div>
 
-    {/* Bouton avec icône et texte */}
-    <button 
-      alt="Edit" 
-      style={{ height: '1px', background:'white',color:'black',cursor: 'pointer',display: 'flex', alignItems: 'center', justifyContent: 'center',width:'5px' }} 
-      onClick={handleClick} 
-      className={`${Btnstyle}`}>
-      <FaFilePdf size={8} /> {/* Icone + espacement */}
-    </button> 
+                <div className="d-flex flex-column text-center col-2">
+          
+                  <span
+                    className={`badge ${
+                      product.Status === "Réalisé" ? "bg-success" : "bg-warning text-dark"
+                    }`}
+                    style={{fontSize:'10px'}}
+                  >
+                    {product.ETATINV}
+                  </span>
+                </div>
 
-    </div>
+                {/* Section Droite : Boutons */}
+                <div className="d-flex gap-2 col-2">
+                  <button className="btn7 btn-sm btn-outline-primary d-flex align-items-center" onClick={handleClick}>
+                    <FaEdit size={12} className="me-1" />
+                  </button>
+                  <button className="btn7 btn-sm btn-outline-danger d-flex align-items-center" onClick={handleClick}>
+                    <FaFilePdf size={12} className="me-1" />
+                  </button>
+                </div>
+              </div>
+
+              {/* Section Checkbox */}
+          
+            </div>
+          </div>
         </div>
-  
-     
-      
-      </div> 
-  
-    </div>    
-  </div>
-  
+      </div>
+    </div>
   );
 }
