@@ -59,7 +59,7 @@ const [scanner, setScanner] = useState(null);
             }
         );
     }*/
-/*useEffect(() => {
+useEffect(() => {
         let html5QrCode;
 
         if (isScannerActive) {
@@ -93,7 +93,7 @@ const [scanner, setScanner] = useState(null);
                 html5QrCode.stop().then(() => html5QrCode.clear());
             }
         };
-    }, [isScannerActive]);*/
+    }, [isScannerActive]);
 const handleInputCodeChange = (value) => {
     setEANCOD_0(value);
 
@@ -110,7 +110,7 @@ const handleInputCodeChange = (value) => {
 
 
     // Initialise et démarre le scanner
-    useEffect(() => {
+/*    useEffect(() => {
         let html5QrCode;
 
         if (isScannerActive) {
@@ -140,7 +140,7 @@ const handleInputCodeChange = (value) => {
             }
         };
     }, [isScannerActive]);
-
+*/
     const debouncedDispatch = debounce((value) => {
       if (value.trim().length >= 3) {
           dispatch(getFilteredValidInv(value));}
