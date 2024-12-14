@@ -86,7 +86,7 @@ export default function Homescreen() {
     };
 
   return (
-      <div className='justify-content-center mx-auto'>
+      <div className='justify-content-center mx-auto mb-2'>
       <div className="col-11 col-md-11 mt-5 mb-3 headerhomescreen mx-auto">
      <h2 className='mt-5'> liste des inventaires</h2>
       </div>
