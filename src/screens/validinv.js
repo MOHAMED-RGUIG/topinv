@@ -130,6 +130,28 @@ const handleInputCodeChange = (e) => {
 
     debouncedCodeDispatch(value);
 };
+ /*const handleInputCodeChange = (value) => {
+        setEANCOD_0(value);
+
+        // Recherche l'article correspondant dans localData
+        const matchedItem = localData.find((item) => item.EANCOD_0 === value);
+
+        // Mise à jour ITMREF_0
+        if (matchedItem) {
+            setITMREF_0(matchedItem.ITMREF_0);
+        } else {
+            setITMREF_0(""); // Réinitialise si aucun article ne correspond
+        }
+
+        debouncedCodeDispatch(value);
+    };
+
+    // Simulation du scanner pour stocker directement dans EANCOD_0
+    const handleScanResult = (result) => {
+        if (result) {
+            handleInputCodeChange(result); // Met à jour l'input et appelle handleInputCodeChange
+        }
+    };*/
   const addNewRow = (e) => {
     e.preventDefault();
     const newRow = {
@@ -253,6 +275,7 @@ const handleInputCodeChange = (e) => {
                 onChange={(e) => setScanResult(e.target.value)}
                 style={{ width: "90%", fontSize: "13px", marginTop: "10px" }}
             />
+
                 {/** <input
                     required
                     type='text'
