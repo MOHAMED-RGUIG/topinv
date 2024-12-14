@@ -94,7 +94,7 @@ useEffect(() => {
             }
         };
     }, [isScannerActive]);
-const handleInputCodeChange = (value) => {
+/*const handleInputCodeChange = (value) => {
     setEANCOD_0(value);
 
     const matchedItem = localData.find((item) =>
@@ -107,7 +107,7 @@ const handleInputCodeChange = (value) => {
         setITMREF_0("");
     }
 };
-
+*/
 
     // Initialise et démarre le scanner
 /*    useEffect(() => {
@@ -160,7 +160,7 @@ const handleInputCodeChange = (value) => {
     
     debouncedCodeDispatch(value);
 };*/
-/*
+
 const handleInputCodeChange = (e) => {
     const value = e.target.value;
     setEANCOD_0(value);
@@ -176,7 +176,7 @@ const handleInputCodeChange = (e) => {
     }
 
     debouncedCodeDispatch(value);
-};*/
+};
  /*const handleInputCodeChange = (value) => {
         setEANCOD_0(value);
 
