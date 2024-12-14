@@ -94,7 +94,7 @@ const [scanner, setScanner] = useState(null);
             }
         };
     }, [isScannerActive]);*/
-//const handleInputCodeChange = (value) => {
+const handleInputCodeChange = (value) => {
     setEANCOD_0(value);
 
     const matchedItem = localData.find((item) =>
