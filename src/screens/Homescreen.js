@@ -151,7 +151,7 @@ export default function Homescreen() {
         ) : (
           
           products.map((product) => (
-            <div key={product.id} className='col-12 col-md-12'>
+            <div key={product.id} className='col-12 col-md-12 mx-auto'>
               <Product product={product}/>
             </div>
           ))
