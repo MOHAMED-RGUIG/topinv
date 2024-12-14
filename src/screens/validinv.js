@@ -404,7 +404,7 @@ const handleInputCodeChange = (e) => {
                 className="form-control col-xl-10 col-8 col-md-8 mx-auto"
                 value={EANCOD_0} // Résultat combiné (manuel + scan)
                 onChange={(e) => handleInputCodeChange}
-                style={{ display:none,width: "90%", fontSize: "13px", marginTop: "10px" }}
+                style={{ display:'none',width: "90%", fontSize: "13px", marginTop: "10px" }}
             />
  {/* Input unique pour résultat scan et manuel */}
     <input
