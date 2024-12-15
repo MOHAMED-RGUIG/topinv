@@ -16,6 +16,20 @@ export const getAllProducts = () => async dispatch => {
 
 
 
+export const updateProduct = (REFINV_0, ETATINV) => async (dispatch) => {
+    dispatch({ type: 'UPDATE_PRODUCT_REQUEST' });
+  
+    try {
+      const response = await axios.put(
+        `http://localhost:5000/api/products/updateproducts/${REFINV_0}`,
+        { ETATINV } // Envoyer ETATINV dans le corps
+      );
+  
+      dispatch({ type: 'UPDATE_PRODUCT_SUCCESS', payload: response.data });
+    } catch (error) {
+      dispatch({ type: 'UPDATE_PRODUCT_FAILED', payload: error.message });
+    }
+  };
 
 
 export const getAllImgProducts = () => async dispatch => {
