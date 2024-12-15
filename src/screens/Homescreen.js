@@ -26,7 +26,9 @@ export default function Homescreen() {
     dispatch(getAllProducts());
     dispatch(getAllImgProducts());
   }, [dispatch]);
-
+ const handleExportAllProducts = () => {
+    generateAllProductsPDF(filteredProducts); // Appelle la fonction pour générer le PDF pour tous les produits
+  };
   // Fonction pour filtrer les produits par ETATINV et DESINV_0
   const filteredProducts = products.filter((product) => {
     const searchLower = searchQuery.toLowerCase();
