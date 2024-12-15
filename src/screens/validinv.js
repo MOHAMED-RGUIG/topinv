@@ -398,7 +398,7 @@ const handleInputCodeChange = (e) => {
     */}
  {/* Input unique pour résultat scan et manuel */}
                           <input
-                required
+                
                 type="text"
                 placeholder="Code-barre"
                 className="form-control col-xl-10 col-8 col-md-8 mx-auto"
@@ -408,7 +408,7 @@ const handleInputCodeChange = (e) => {
             />
  {/* Input unique pour résultat scan et manuel */}
     <input
-        required
+        
         type="text"
         placeholder="Code-barre"
         className="form-control col-xl-10 col-8 col-md-8 mx-auto"
@@ -418,7 +418,7 @@ const handleInputCodeChange = (e) => {
       />
          
     <input
-                required
+                
                 type='text'
                 placeholder='Code article'
                 className='form-control col-xl-10 col-8 col-md-8 mx-auto'
