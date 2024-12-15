@@ -21,7 +21,7 @@ export const updateProduct = (REFINV_0, ETATINV) => async (dispatch) => {
   
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/products/updateproducts/${REFINV_0}`,
+        `https://topinvapi.onrender.com/api/products/updateproducts/${REFINV_0}`,
         { ETATINV } // Envoyer ETATINV dans le corps
       );
   
