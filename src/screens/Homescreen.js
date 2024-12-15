@@ -70,7 +70,7 @@ export default function Homescreen() {
           onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
- {/* Bouton d'exportation pour tous les produits */} <div className="col-12 text-center mb-3">
+ {/* Bouton d'exportation pour tous les produits */} <div className="col-8 text-center mb-3 mx-auto">
 <button className="btn5 btn-sm btn-outline-danger d-flex align-items-center style={{width:'60%'}}"  onClick={handleExportAllProducts}>
                   <FaFilePdf size={12} className="me-1" />Exporter PDF
                 </button></div>
