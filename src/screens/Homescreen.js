@@ -71,7 +71,7 @@ export default function Homescreen() {
         />
       </div>
  {/* Bouton d'exportation pour tous les produits */} <div className="col-12 text-center mb-3">
-<button className="btn7 btn-sm btn-outline-danger d-flex align-items-center"  onClick={handleExportAllProducts}>
+<button className="btn5 btn-sm btn-outline-danger d-flex align-items-center"  onClick={handleExportAllProducts}>
                   <FaFilePdf size={12} className="me-1" />
                 </button></div>
 
