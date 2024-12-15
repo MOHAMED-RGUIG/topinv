@@ -6,7 +6,7 @@ import Loading from '../components/Loading';
 import Error from '../components/Error';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import feather from 'feather-icons';
-
+import { generateAllProductsPDF } from '../components/pdfgenerator';
 export default function Homescreen() {
   const dispatch = useDispatch();
   const { products, error, loading } = useSelector(state => state.products);
@@ -67,7 +67,16 @@ export default function Homescreen() {
           onChange={(e) => setSearchQuery(e.target.value)}
         />
       </div>
-
+ {/* Bouton d'exportation pour tous les produits */}
+            <div className="col-12 text-center mb-3">
+              <button
+                className="btn5 btn-primary"
+                onClick={handleExportAllProducts}
+              >
+                Exporter tous les produits en PDF
+              </button>
+            </div>
+            {/* Bouton d'exportation pour tous les produits */}  
       {/* Liste des produits */}
       <div className='row justify-content-center col-xl-12 col-md-12 col-12 mx-auto'>
         {loading ? (
