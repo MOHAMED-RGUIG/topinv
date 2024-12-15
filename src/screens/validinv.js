@@ -297,7 +297,7 @@ const handleInputCodeChange = (e) => {
                     
                      {/*LIBELE INVENTAIRE */}
                      <select
-                required
+                
                 className="form-control col-xl-10 col-8 col-md-8 mx-auto mt-2"
                 value={REFINV_0}
                 onChange={(e) => setREFINV_0(e.target.value)}
@@ -324,7 +324,7 @@ const handleInputCodeChange = (e) => {
             </button>
             {isScannerActive && <div id="qr-reader" style={{ width: "100%" }} />}
             <input
-                required
+                
                 type="text"
                 placeholder="Résultat QR Code"
                 className="form-control col-xl-10 col-8 col-md-8 mx-auto"
