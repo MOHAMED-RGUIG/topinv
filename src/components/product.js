@@ -16,7 +16,7 @@ export default function Product({ product }) {
 
   const handleUpdate = () => {
     const newStatus = etatInv === 'Réalisé' ? 'Ouvert' : 'Réalisé'; // Toggle status
-    dispatch(updateProduct(product.REFINV_0, newStatus)
+    dispatch(updateProduct(product.REFINV_0, newStatus))
       .then(() => {
         setEtatInv(newStatus); // Mettre à jour l'état local
         togglePopup();
