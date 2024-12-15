@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import thunk from 'redux-thunk';
 import { combineReducers } from 'redux';
-import { getAllProductsReducer,getAllImgProductsReducer } from './reducers/productReducers'
+import { getAllProductsReducer,getAllImgProductsReducer ,updateProductReducer} from './reducers/productReducers'
 import {cartReducer} from './reducers/cartReducer'
 import {getAllvalidInvReducer,getInvReducer,validInvReducer,getAllvalidInvByCodeReducer} from './reducers/validInvReducer'
 import { loginUserReducer, registerUserReducer } from './reducers/userReducer';
@@ -23,7 +23,8 @@ const rootReducer = combineReducers({
   getInvReducer:getInvReducer,
   imgProducts: getAllImgProductsReducer,
   validInvReducer:validInvReducer,
-  getAllvalidInvByCodeReducer:getAllvalidInvByCodeReducer
+  getAllvalidInvByCodeReducer:getAllvalidInvByCodeReducer,
+  updateProductReducer:updateProductReducer
   //placeCartReducer:placeCartReducer
   // Use 
   // Use
