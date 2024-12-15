@@ -143,7 +143,8 @@ export default function Homescreen() {
 />
 
  </div>*/}
-          <div className='row justify-content-center col-xl-12 col-md-12 col-12 mx-auto'>
+     
+      <div className='row justify-content-center col-xl-12 col-md-12 col-12 mx-auto'>
         {loading ? (
           <Loading />
         ) : error ? (
@@ -151,7 +152,7 @@ export default function Homescreen() {
         ) : (
           
           products.map((product) => (
-            <div key={product.id} className='col-12 col-md-12 mx-auto'>
+            <div key={product.REFINV_0} className='col-12 col-md-12'>
               <Product product={product}/>
             </div>
           ))
