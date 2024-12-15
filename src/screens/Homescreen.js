@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllProducts, getAllImgProducts } from '../actions/productAction';
 import Product from '../components/product';
+import { FaEdit ,FaFilePdf} from 'react-icons/fa';
 import Loading from '../components/Loading';
 import Error from '../components/Error';
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
