@@ -75,14 +75,14 @@ export default function Homescreen() {
                   <FaFilePdf size={12} className="me-1" />
                 </button>
 
-          /*  <div className="col-12 text-center mb-3">
+  {/*  <div className="col-12 text-center mb-3">
               <button
                 className="btn5 btn-primary"
                 onClick={handleExportAllProducts}
               >
                 Exporter tous les produits en PDF
               </button>
-            </div>*/
+            </div>*/}
             {/* Bouton d'exportation pour tous les produits */}  
       {/* Liste des produits */}
       <div className='row justify-content-center col-xl-12 col-md-12 col-12 mx-auto'>
