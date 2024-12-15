@@ -86,7 +86,7 @@ export default function Product({ product }) {
                   onClick={togglePopup} // Afficher le popup
                 >
                   <FaEdit size={12} className="me-1" />
-                    {/*    </button>
+                        </button>{/*
                 <button className="btn7 btn-sm btn-outline-danger d-flex align-items-center">
                   <FaFilePdf size={12} className="me-1" />
                 </button>*/}
