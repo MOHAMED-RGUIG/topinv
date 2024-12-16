@@ -165,8 +165,8 @@ const handlechangeresult = (e) => {
         setScanResult(value);
         setEANCOD_0(value);
     };
-    
-const handleInputCodeChange = (e) => {
+ //la derniere   
+/*const handleInputCodeChange = (e) => {
     const value = e.target.value;
     setEANCOD_0(value);
 
@@ -181,7 +181,27 @@ const handleInputCodeChange = (e) => {
     }
 
     debouncedCodeDispatch(value);
+};*/
+const handleInputCodeChange = (e) => {
+    const value = e.target.value.trim(); // Nettoie les espaces
+    setEANCOD_0(value);
+
+    if (value) {
+        // Recherche de l'élément correspondant dans localData
+        const matchedItem = localData.find((item) => item.EANCOD_0 === value);
+
+        if (matchedItem) {
+            setITMREF_0(matchedItem.ITMREF_0); // Remplit le champ Code article
+        } else {
+            setITMREF_0(''); // Réinitialise si aucun article ne correspond
+        }
+    } else {
+        setITMREF_0(''); // Réinitialise si le champ Code-barre est vide
+    }
+
+    debouncedCodeDispatch(value);
 };
+
  /*const handleInputCodeChange = (value) => {
         setEANCOD_0(value);
 
