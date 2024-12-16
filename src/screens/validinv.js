@@ -206,18 +206,7 @@ const handleInputCodeChange = (e) => {
 
     debouncedCodeDispatch(value);
 };*/
- useEffect(() => {
-    if (EANCOD_0.trim() !== "") {
-      const matchedItem = localData.find((item) => item.EANCOD_0 === EANCOD_0);
-      if (matchedItem) {
-        setITMREF_0(matchedItem.ITMREF_0); // Remplit avec itmref trouvé
-      } else {
-        setITMREF_0(""); // Réinitialise si aucune correspondance
-      }
-    } else {
-      setITMREF_0(""); // Réinitialise si Code-barre est vide
-    }
-  }, [EANCOD_0, localData]);
+
  /*const handleInputCodeChange = (value) => {
         setEANCOD_0(value);
 
@@ -314,7 +303,18 @@ const handleInputCodeChange = (e) => {
     const [DESINV, setDESINV] = useState('');
   
  
-    
+     useEffect(() => {
+    if (EANCOD_0.trim() !== "") {
+      const matchedItem = localData.find((item) => item.EANCOD_0 === EANCOD_0);
+      if (matchedItem) {
+        setITMREF_0(matchedItem.ITMREF_0); // Remplit avec itmref trouvé
+      } else {
+        setITMREF_0(""); // Réinitialise si aucune correspondance
+      }
+    } else {
+      setITMREF_0(""); // Réinitialise si Code-barre est vide
+    }
+  }, [EANCOD_0, localData]);
     
     return (
         <div className='container col-xl-12 col-md-12 col-12 mx-auto cart-details'>
