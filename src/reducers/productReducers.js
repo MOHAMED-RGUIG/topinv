@@ -46,7 +46,7 @@ const initialState1 = {
   error: null,
 };
 
-export const productReducer = (state = initialState1, action) => {
+export const updateProductReducer = (state = initialState1, action) => {
   switch (action.type) {
     case 'UPDATE_PRODUCT_REQUEST':
       return { ...state, loading: true };
