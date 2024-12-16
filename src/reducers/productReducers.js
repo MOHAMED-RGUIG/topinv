@@ -40,33 +40,3 @@ export const getAllImgProductsReducer = (state = initialState, action) => {
             return state;
     }
 };
-const initialState1 = {
-    products: [],
-    loading: false,
-    error: null,
-  };
-  
-  export const updateProductReducer = (state = initialState1, action) => {
-    switch (action.type) {
-      case 'UPDATE_PRODUCT_REQUEST':
-        return { ...state, loading: true };
-  
-      case 'UPDATE_PRODUCT_SUCCESS':
-        return {
-          ...state,
-          loading: false,
-          products: state.products.map((product) =>
-            product.REFINV_0 === action.payload.updatedProduct.REFINV_0
-              ? { ...product, ETATINV: action.payload.updatedProduct.ETATINV }
-              : product
-          ),
-        };
-  
-      case 'UPDATE_PRODUCT_FAILED':
-        return { ...state, loading: false, error: action.payload };
-  
-      default:
-        return state;
-    }
-  };
-  
