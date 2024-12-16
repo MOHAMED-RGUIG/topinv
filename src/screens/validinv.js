@@ -574,7 +574,7 @@ readOnly={EANCOD_0.trim() !== ''}
                     <div className="menubar-nav d-flex justify-content-end col-10 mx-auto">
                     <CheckoutValidinv
     REFINV_0={REFINV_0}
-    ITMREF_0={ITMREF_0}
+    itmref={itmref}
     localData={localData}
 />
                     </div>
