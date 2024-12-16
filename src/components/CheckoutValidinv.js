@@ -19,7 +19,7 @@ function CheckoutValidinv({ REFINV_0, itmref, localData }) {
         if (REFINV_0 && itmref && localData.length > 0) {
             const payload = {
                 REFINV_0,
-                ITMREF_0,
+                itmref,
                 rows: localData // Inclure toutes les lignes du tableau
             };
             dispatch(validInvInsert(payload));
