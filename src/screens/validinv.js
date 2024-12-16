@@ -184,19 +184,24 @@ const handlechangeresult = (e) => {
 };*/
 const handleInputCodeChange = (e) => {
     const value = e.target.value.trim(); // Nettoie les espaces
+    console.log("Valeur saisie dans Code-barre :", value);
     setEANCOD_0(value);
 
     if (value) {
         // Recherche de l'élément correspondant dans localData
         const matchedItem = localData.find((item) => item.EANCOD_0 === value);
+        console.log("Élément correspondant :", matchedItem);
 
         if (matchedItem) {
             setITMREF_0(matchedItem.ITMREF_0); // Remplit le champ Code article
+            console.log("Code article trouvé :", matchedItem.ITMREF_0);
         } else {
             setITMREF_0(''); // Réinitialise si aucun article ne correspond
+            console.log("Aucune correspondance trouvée.");
         }
     } else {
         setITMREF_0(''); // Réinitialise si le champ Code-barre est vide
+        console.log("Champ Code-barre vide.");
     }
 
     debouncedCodeDispatch(value);
