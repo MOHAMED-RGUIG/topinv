@@ -8,7 +8,7 @@ import Error from '../components/Error';
 import Success from '../components/Success';
 import emailjs from 'emailjs-com';
 
-function CheckoutValidinv({ REFINV_0, ITMREF_0, localData }) {
+function CheckoutValidinv({ REFINV_0, itmref, localData }) {
     const validinvinsertstate = useSelector(state => state.validInvReducer);
     const { loading, error, success } = validinvinsertstate;
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -16,7 +16,7 @@ function CheckoutValidinv({ REFINV_0, ITMREF_0, localData }) {
     const dispatch = useDispatch();
 
     function tokenHandler() {
-        if (REFINV_0 && ITMREF_0 && localData.length > 0) {
+        if (REFINV_0 && itmref && localData.length > 0) {
             const payload = {
                 REFINV_0,
                 ITMREF_0,
