@@ -19,7 +19,18 @@ function Validinv() {
     const { getinv } = getInvState;
     const { validinv, error, loading } = validInvstate; 
     const {validinvcode} = validInvCodestate;
-
+ useEffect(() => {
+    if (EANCOD_0.trim() !== "") {
+      const matchedItem = localData.find((item) => item.EANCOD_0 === EANCOD_0);
+      if (matchedItem) {
+        setITMREF_0(matchedItem.ITMREF_0); // Remplit avec itmref trouvé
+      } else {
+        setITMREF_0(""); // Réinitialise si aucune correspondance
+      }
+    } else {
+      setITMREF_0(""); // Réinitialise si Code-barre est vide
+    }
+  }, [EANCOD_0, localData]);
     const [isScannerActive, setIsScannerActive] = useState(false);
  const [scanResult, setScanResult] = useState('');
   const [isScanning, setIsScanning] = useState(false);
