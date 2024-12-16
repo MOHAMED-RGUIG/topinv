@@ -16,6 +16,7 @@ export default function Product({ product }) {
 
   const handleUpdate = () => {
     const newStatus = etatInv === 'Réalisé' ? 'Ouvert' : 'Réalisé'; // Toggle status
+console.log('REFINV_0:', product.REFINV_0, 'newStatus:', newStatus);
     dispatch(updateProduct(product.REFINV_0, newStatus))
       .then(() => {
         setEtatInv(newStatus); // Mettre à jour l'état local
