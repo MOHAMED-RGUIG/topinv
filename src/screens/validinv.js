@@ -392,7 +392,7 @@ const handleInputCodeChange = (e) => {
             
     {/* Select Inventaire */}
     <select
-        className="form-control col-xl-10 col-8 col-md-8"
+        className="form-control col-xl-10 col-10 col-md-10"
         value={REFINV_0}
         onChange={(e) => setREFINV_0(e.target.value)}
         style={{ width: '90%', fontSize: '13px' }}
@@ -479,7 +479,7 @@ const handleInputCodeChange = (e) => {
                 
                 type="text"
                 placeholder="Code-barre"
-                className="form-control col-xl-10 col-8 col-md-8 mx-auto"
+                className="form-control col-xl-10 col-10 col-md-10 mx-auto"
                 value={EANCOD_0} // Résultat combiné (manuel + scan)
                 onChange={(e) => handleInputCodeChange}
                 style={{ display:'none',width: "90%", fontSize: "13px", marginTop: "10px" }}
@@ -500,7 +500,7 @@ const handleInputCodeChange = (e) => {
                 
                 type='text'
                 placeholder='Code article'
-                className='form-control col-xl-10 col-8 col-md-8 mx-auto'
+                className='form-control col-xl-10 col-10 col-md-10 mx-auto'
                 value={ITMREF_0}
                 onChange={handleInputChange}
                 style={{ width: '90%', fontSize: '13px' }}
