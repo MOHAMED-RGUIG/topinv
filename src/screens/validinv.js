@@ -363,14 +363,14 @@ const handleInputCodeChange = (e) => {
     {/* Select Inventaire */}
     
 <input
-                
-                type="text"
-                placeholder="Résultat QR Code"
-                className="form-control col-xl-10 col-8 col-md-8 mx-auto"
-                value={scanResult}
-                onChange={handlechangeresult}
-                style={{ display:'none',width: "90%", fontSize: "13px", marginTop: "10px" }}
-            />
+        
+        type="text"
+        placeholder="Code-barre"
+        className="form-control col-xl-10 col-8 col-md-8 mx-auto"
+        value={EANCOD_0}
+        onChange={handleInputCodeChange}  // Met à jour le résultat du scan dans l'input
+        style={{ width: '90%', fontSize: '13px' }}
+      />
 
     {/* Bouton Scanner */}
     <button
@@ -485,15 +485,16 @@ const handleInputCodeChange = (e) => {
                 style={{ display:'none',width: "90%", fontSize: "13px", marginTop: "10px" }}
             />
  {/* Input unique pour résultat scan et manuel */}
-    <input
-        
-        type="text"
-        placeholder="Code-barre"
-        className="form-control col-xl-10 col-8 col-md-8 mx-auto"
-        value={EANCOD_0}
-        onChange={handleInputCodeChange}  // Met à jour le résultat du scan dans l'input
-        style={{ width: '90%', fontSize: '13px' }}
-      />
+<input
+                
+                type="text"
+                placeholder="Résultat QR Code"
+                className="form-control col-xl-10 col-8 col-md-8 mx-auto"
+                value={scanResult}
+                onChange={handlechangeresult}
+                style={{ display:'none',width: "90%", fontSize: "13px", marginTop: "10px" }}
+            />
+    
          
     <input
                 
