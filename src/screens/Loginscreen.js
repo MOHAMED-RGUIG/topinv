@@ -40,8 +40,10 @@ export default function Loginscreen() {
 
       <div className='row justify-content-center mt-2'>
 
-        <div className='col-md-11 col-11 text-start '>
-          <h2 className='text-center m-2' style={{ fontSize: '30px' }}>Bienvenue!</h2>
+    {/* <div className='col-md-11 col-11 text-start '>
+          <h2 className='text-center m-2' style={{ fontSize: '30px' }}>Bienvenue!</h2>  */}
+<div className='col-md-11 col-11 text-start fw-bold'>
+<h6 className='text-center login-title fw-bold m-2'>Connexion</h6>
 
           {loading && (<Loading />)}
           {error && (<Error error='Nom dutilisateur ou mot de passe incorrect. Veuillez réessayer' />)}
