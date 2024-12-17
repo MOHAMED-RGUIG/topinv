@@ -363,7 +363,40 @@ const handleInputCodeChange = (e) => {
     {/* Select Inventaire */}
     <div className="d-flex align-items-center mt-2">
     {/* Select Inventaire */}
-    <select
+    {/* Select Inventaire */}
+    <div className="d-flex align-items-center mt-2">
+
+    <input
+                
+                type="text"
+                placeholder="Résultat QR Code"
+                className="form-control col-xl-10 col-8 col-md-8 mx-auto"
+                value={scanResult}
+                onChange={handlechangeresult}
+                style={{ display:'none',width: "90%", fontSize: "13px", marginTop: "10px" }}
+            />
+
+    {/* Bouton Scanner */}
+    <button
+        type="button" // Empêche le comportement par défaut
+        onClick={(e) => {
+            e.preventDefault(); // Empêche toute action par défaut
+            setIsScannerActive(!isScannerActive);
+        }}
+        className="btn5 btn-primary ml-2"
+        style={{ fontSize: '13px', height: '38px', width: '38px' }}
+    >
+        <i className="fas fa-qrcode"></i> {/* Icône de scan */}
+    </button>
+</div>
+
+{/* Scanner QR si actif */}
+{isScannerActive && <div id="qr-reader" style={{ width: "100%" }} />}</div>
+
+            
+
+    {/* Select Inventaire */}
+<select
         className="form-control col-xl-10 col-8 col-md-8"
         value={REFINV_0}
         onChange={(e) => setREFINV_0(e.target.value)}
@@ -382,33 +415,6 @@ const handleInputCodeChange = (e) => {
             <option disabled>Aucun inventaire disponible</option>
         )}
     </select>
-
-    {/* Bouton Scanner */}
-    <button
-        type="button" // Empêche le comportement par défaut
-        onClick={(e) => {
-            e.preventDefault(); // Empêche toute action par défaut
-            setIsScannerActive(!isScannerActive);
-        }}
-        className="btn5 btn-primary ml-2"
-        style={{ fontSize: '13px', height: '38px', width: '38px' }}
-    >
-        <i className="fas fa-qrcode"></i> {/* Icône de scan */}
-    </button>
-</div>
-
-{/* Scanner QR si actif */}
-</div>{isScannerActive && <div id="qr-reader" style={{ width: "100%" }} />}
-
-            <input
-                
-                type="text"
-                placeholder="Résultat QR Code"
-                className="form-control col-xl-10 col-8 col-md-8 mx-auto"
-                value={scanResult}
-                onChange={handlechangeresult}
-                style={{ display:'none',width: "90%", fontSize: "13px", marginTop: "10px" }}
-            />
 
                 {/** <input
                     required
