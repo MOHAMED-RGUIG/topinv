@@ -387,7 +387,7 @@ const handleInputCodeChange = (e) => {
 </div>
 
 {/* Scanner QR si actif */}
-</div>{isScannerActive && <div id="qr-reader" style={{ width: "100%" }} />}
+{isScannerActive && <div id="qr-reader" style={{ width: "100%" }} />}
 
             
     {/* Select Inventaire */}
