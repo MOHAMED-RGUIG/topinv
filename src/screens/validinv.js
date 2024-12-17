@@ -361,6 +361,8 @@ const handleInputCodeChange = (e) => {
             {isScannerActive && <div id="qr-reader" style={{ width: "100%" }} />} */}
 <div className="d-flex align-items-center mt-2">
     {/* Select Inventaire */}
+    <div className="d-flex align-items-center mt-2">
+    {/* Select Inventaire */}
     <select
         className="form-control col-xl-10 col-8 col-md-8"
         value={REFINV_0}
@@ -381,11 +383,15 @@ const handleInputCodeChange = (e) => {
         )}
     </select>
 
-    {/* Bouton Scanner avec Icône */}
+    {/* Bouton Scanner */}
     <button
-        onClick={() => setIsScannerActive(!isScannerActive)}
-        className="btn btn-primary ml-2"
-        style={{ fontSize: '13px', height: '38px', width: '38px' }} // Ajuste la taille du bouton
+        type="button" // Empêche le comportement par défaut
+        onClick={(e) => {
+            e.preventDefault(); // Empêche toute action par défaut
+            setIsScannerActive(!isScannerActive);
+        }}
+        className="btn5 btn-primary ml-2"
+        style={{ fontSize: '13px', height: '38px', width: '38px' }}
     >
         <i className="fas fa-qrcode"></i> {/* Icône de scan */}
     </button>
