@@ -70,7 +70,7 @@ console.log('REFINV_0:', product.REFINV_0, 'newStatus:', newStatus);
                 </p>
               </div>
 
-              <div className="d-flex flex-column text-center col-2">
+              <div className="d-flex flex-column text-center col-4">
                   <span
                     className={`badge ${
                       etatInv === 'Réalisé' ? 'bg-success' : 'bg-warning text-dark'
