@@ -361,12 +361,8 @@ const handleInputCodeChange = (e) => {
             {isScannerActive && <div id="qr-reader" style={{ width: "100%" }} />} */}
 <div className="d-flex align-items-center mt-2">
     {/* Select Inventaire */}
-    <div className="d-flex align-items-center mt-2">
-    {/* Select Inventaire */}
-    {/* Select Inventaire */}
-    <div className="d-flex align-items-center mt-2">
-
-    <input
+    
+<input
                 
                 type="text"
                 placeholder="Résultat QR Code"
@@ -391,12 +387,11 @@ const handleInputCodeChange = (e) => {
 </div>
 
 {/* Scanner QR si actif */}
-{isScannerActive && <div id="qr-reader" style={{ width: "100%" }} />}</div>
+</div>{isScannerActive && <div id="qr-reader" style={{ width: "100%" }} />}
 
             
-
     {/* Select Inventaire */}
-<select
+    <select
         className="form-control col-xl-10 col-8 col-md-8"
         value={REFINV_0}
         onChange={(e) => setREFINV_0(e.target.value)}
