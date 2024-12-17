@@ -392,7 +392,7 @@ const handleInputCodeChange = (e) => {
             
     {/* Select Inventaire */}
     <select
-        className="form-control col-xl-10 col-10 col-md-10"
+        className="form-control mt-2 col-xl-10 col-10 col-md-10"
         value={REFINV_0}
         onChange={(e) => setREFINV_0(e.target.value)}
         style={{ width: '90%', fontSize: '13px' }}
