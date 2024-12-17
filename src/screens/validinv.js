@@ -332,9 +332,9 @@ const handleInputCodeChange = (e) => {
                      
                     
                      {/*LIBELE INVENTAIRE */}
-                     <select
+                              <div className="d-flex align-items-center mt-2">     <select
                 
-                className="form-control col-xl-10 col-8 col-md-8 mx-auto mt-2"
+                className="form-control col-xl-10 col-8 col-md-8"
                 value={REFINV_0}
                 onChange={(e) => setREFINV_0(e.target.value)}
                 style={{ width: '90%', fontSize: '13px' }}
@@ -354,10 +354,12 @@ const handleInputCodeChange = (e) => {
             </select>
              <button
                 onClick={() => setIsScannerActive(!isScannerActive)}
-                className="btn5 btn-primary mt-3"
-            >
-                {isScannerActive ? "Fermer Scanner" : "Scanner un Code"}
+               className="btn5 btn-primary mt-0 p-2"
+        style={{ fontSize: '10px', height: '35px', width: '38px' }} 
+            >   <i className="fas fa-qrcode"></i>
+                
             </button>
+            </div>
             {isScannerActive && <div id="qr-reader" style={{ width: "100%" }} />}
             <input
                 
