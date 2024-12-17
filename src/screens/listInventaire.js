@@ -233,7 +233,20 @@ function ListInventaire() {
                     onChange={(e) => { setDESINV(e.target.value) }}
                     style={{ width: '90%', fontSize: '13px' }}
                 />
-                      <input
+  <select
+    required
+    className='form-control col-xl-10 col-8 col-md-8 mx-auto mt-3'
+    value={ETATINV}
+    onChange={(e) => { setETATINV(e.target.value) }}
+    style={{ width: '90%', fontSize: '13px' }}
+>
+    <option value="" disabled>Choisir l'état d'inventaire</option>
+    <option value="En cours">En cours</option>
+    <option value="Terminé">Terminé</option>
+    <option value="Annulé">Annulé</option>
+</select>
+
+{/*    <input
                     required
                     type='text'
                     placeholder='Etat inventaire'
@@ -241,7 +254,7 @@ function ListInventaire() {
                     value={ETATINV}
                     onChange={(e) => { setETATINV(e.target.value) }}
                     style={{ width: '90%', fontSize: '13px' }}
-                />
+                />*/}
                  
                 </div></form>
             </div>
