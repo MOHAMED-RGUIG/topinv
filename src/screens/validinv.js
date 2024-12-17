@@ -398,7 +398,7 @@ const handleInputCodeChange = (e) => {
 </div>
 
 {/* Scanner QR si actif */}
-{isScannerActive && <div id="qr-reader" style={{ width: "100%" }} />}</div>
+</div>{isScannerActive && <div id="qr-reader" style={{ width: "100%" }} />}
 
             <input
                 
@@ -508,7 +508,7 @@ readOnly={EANCOD_0.trim() !== ''}
     
 
                   
-     <div className="mb-4">
+     <div className="mb-4" style={{ display:'none'}}>
     <h5 className="text-lg font-bold mb-2 mt-4 w-50 mx-auto">Référence</h5>
     <ul className="list-disc list-inside">
       {[...new Set(localData.map((item) => item.ITMREF_0))].map((itmref, index) => (
