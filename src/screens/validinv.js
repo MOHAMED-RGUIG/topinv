@@ -332,7 +332,7 @@ const handleInputCodeChange = (e) => {
                      
                     
                      {/*LIBELE INVENTAIRE */}
-                      <select
+    {/*     <select
                 
                 className="form-control col-xl-10 col-8 col-md-8 mx-auto mt-2"
                 value={REFINV_0}
@@ -358,7 +358,42 @@ const handleInputCodeChange = (e) => {
             >
                 {isScannerActive ? "Fermer Scanner" : "Scanner un Code"}
             </button>
-            {isScannerActive && <div id="qr-reader" style={{ width: "100%" }} />}
+            {isScannerActive && <div id="qr-reader" style={{ width: "100%" }} />} */}
+<div className="d-flex align-items-center mt-2">
+    {/* Select Inventaire */}
+    <select
+        className="form-control col-xl-10 col-8 col-md-8"
+        value={REFINV_0}
+        onChange={(e) => setREFINV_0(e.target.value)}
+        style={{ width: '90%', fontSize: '13px' }}
+    >
+        <option value="" disabled>
+            Sélectionnez un inventaire
+        </option>
+        {getinv && getinv.length > 0 ? (
+            getinv.map((inv, index) => (
+                <option key={index} value={inv.REFINV_0}>
+                    {inv.DESINV_0}
+                </option>
+            ))
+        ) : (
+            <option disabled>Aucun inventaire disponible</option>
+        )}
+    </select>
+
+    {/* Bouton Scanner avec Icône */}
+    <button
+        onClick={() => setIsScannerActive(!isScannerActive)}
+        className="btn btn-primary ml-2"
+        style={{ fontSize: '13px', height: '38px', width: '38px' }} // Ajuste la taille du bouton
+    >
+        <i className="fas fa-qrcode"></i> {/* Icône de scan */}
+    </button>
+</div>
+
+{/* Scanner QR si actif */}
+{isScannerActive && <div id="qr-reader" style={{ width: "100%" }} />}
+
             <input
                 
                 type="text"
