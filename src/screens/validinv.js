@@ -380,7 +380,7 @@ const handleInputCodeChange = (e) => {
             setIsScannerActive(!isScannerActive);
         }}
         className="btn5 btn-primary p-2 mt-0"
-        style={{ fontSize: '13px', height: '32px', width: '38px' }}
+        style={{ fontSize: '13px', height: '38px', width: '38px' }}
     >
         <i className="fas fa-qrcode"></i> {/* Icône de scan */}
     </button>
