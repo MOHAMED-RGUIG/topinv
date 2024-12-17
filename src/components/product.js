@@ -64,13 +64,13 @@ console.log('REFINV_0:', product.REFINV_0, 'newStatus:', newStatus);
                 </p>
               </div>
 
-              <div className="d-flex flex-column text-center col-4">
+              <div className="d-flex flex-column text-center col-7">
                 <p className="mb-0 small" style={{ fontSize: '10px' }}>
                   {product.DESINV_0}
                 </p>
               </div>
 
-              <div className="d-flex flex-column text-center col-4">
+              <div className="d-flex flex-column text-center col-2">
                   <span
                     className={`badge ${
                       etatInv === 'Réalisé' ? 'bg-success' : 'bg-warning text-dark'
@@ -81,7 +81,7 @@ console.log('REFINV_0:', product.REFINV_0, 'newStatus:', newStatus);
                   </span>
                 </div>
               {/* Boutons */}
-              <div className="d-flex gap-2 col-2">
+              <div className="d-flex gap-2 col-1">
                 <button
                   className="btn7 btn-sm btn-outline-primary d-flex align-items-center"
                   onClick={togglePopup} // Afficher le popup
