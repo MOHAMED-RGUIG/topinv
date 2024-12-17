@@ -54,7 +54,7 @@ console.log('REFINV_0:', product.REFINV_0, 'newStatus:', newStatus);
           <div className="card-body p-3" style={{ borderLeft: '4px solid #183F7F' }}>
             <div className="d-flex">
               {/* Détails du produit */}
-              <div className="d-flex flex-column col-2">
+              <div className="d-flex flex-column col-3">
                 <p className="mb-0 small" style={{ fontSize: '10px' }}>
                   {new Date(product.DATEINV_0).toLocaleDateString('fr-FR', {
                     day: '2-digit',
@@ -64,7 +64,7 @@ console.log('REFINV_0:', product.REFINV_0, 'newStatus:', newStatus);
                 </p>
               </div>
 
-              <div className="d-flex flex-column text-center col-7">
+              <div className="d-flex flex-column text-center col-6">
                 <p className="mb-0 small" style={{ fontSize: '10px' }}>
                   {product.DESINV_0}
                 </p>
