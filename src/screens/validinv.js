@@ -332,7 +332,7 @@ const handleInputCodeChange = (e) => {
                      
                     
                      {/*LIBELE INVENTAIRE */}
-                              <select
+                      <select
                 
                 className="form-control col-xl-10 col-8 col-md-8 mx-auto mt-2"
                 value={REFINV_0}
