@@ -324,7 +324,7 @@ const handleInputCodeChange = (e) => {
                 </div>
             </div>
             <div className='col-md-12 col-xl-12 text-center col-10 col-xs-10 mx-auto bg-white cart-client-infos'>
-                <h2 className='pt-2'>Validation d'inventaire</h2>
+     <h3 className='pt-2 login-title mt-4'  >Validation inventaire</h3>
                 <form>
                   
                 <div className="text-start w-100 col-xl-10 col-8 col-md-8 pb-2">
